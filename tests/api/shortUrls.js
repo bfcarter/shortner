@@ -5,7 +5,7 @@ var tests = {};
 tests.getAllUrls = function(callback) {
     request({
         method: "GET",
-        uri: "http://linux0.local:3000/api/v1/urls/"
+        uri: "http://127.0.0.1:3000/api/v1/urls/"
     }, function(error, response, body) {
         if(error || !body) {
             callback(true);
@@ -26,7 +26,7 @@ tests.getAllUrls = function(callback) {
 tests.makeShortUrl = function(callback) {
     request({
         method: "POST",
-        uri: "http://linux0.local:3000/api/v1/urls/",
+        uri: "http://127.0.0.1:3000/api/v1/urls/",
         json: {
             url: "https://google.com/"
         }
@@ -50,7 +50,7 @@ tests.makeShortUrl = function(callback) {
 tests.modifyShortUrl = function(id, callback) {
     request({
         method: "POST",
-        uri: "http://linux0.local:3000/api/v1/urls/" + id + "/",
+        uri: "http://127.0.0.1:3000/api/v1/urls/" + id + "/",
         json: {
             url: "http://example.org/"
         }
@@ -74,7 +74,7 @@ tests.modifyShortUrl = function(id, callback) {
 tests.deleteShortUrl = function(id, callback) {
     request({
         method: "DELETE",
-        uri: "http://linux0.local:3000/api/v1/urls/" + id + "/"
+        uri: "http://127.0.0.1:3000/api/v1/urls/" + id + "/"
     }, function(error, response, body) {
         if(error || !body) {
             callback(true);
@@ -95,7 +95,7 @@ tests.deleteShortUrl = function(id, callback) {
 tests.getOneShortUrl = function(id, callback) {
     request({
         method: "GET",
-        uri: "http://linux0.local:3000/api/v1/urls/" + id + "/"
+        uri: "http://127.0.0.1:3000/api/v1/urls/" + id + "/"
     }, function(error, response, body) {
         if(error || !body) {
             callback(true);
@@ -116,7 +116,7 @@ tests.getOneShortUrl = function(id, callback) {
 tests.givenRoute = function(route, callback) {
     request({
         method: "GET",
-        uri: "http://linux0.local:3000" + route
+        uri: "http://127.0.0.1:3000" + route
     }, function(error, response, body) {
         if(error || !body) {
             callback(true);
