@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "prepublish": "mocha tests",
     "test": "mocha tests",
     "start": "node ./bin/www.js"
   },
