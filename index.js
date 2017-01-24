@@ -1,5 +1,5 @@
 const express = require('express');
-const bodyParser = require('body-parser');  //body-parser required by prof
+const bodyParser = require('body-parser');  // body-parser required by prof
 const mainRouter = require('./routers/');
 const logger = require('./middlewares/logger.js');
 const bannedIpsMiddleware = require('./middlewares/bannedIps.js');
