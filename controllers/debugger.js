@@ -1,4 +1,4 @@
-//debug
+// debug
 const config = require('../config.js');
 
-module.exports = require("simple-debugger-node")(config);
+module.exports = require('simple-debugger-node')(config);

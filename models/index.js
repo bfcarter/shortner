@@ -9,8 +9,8 @@ const sequelize = new Sequelize(config.database, config.login, config.password, 
   port: config.port,
   dialect: config.type,
   pool: {
-    max: 5, //5 is the max #
-    min: 0,  //min is zero
+    max: 5, // 5 is the max #
+    min: 0,  // min is zero
     idle: 10000,
   },
 });
