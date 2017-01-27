@@ -1,137 +1,137 @@
-var request = require("request");
+const request = require("request");
 
-var tests = {};
+const tests = {};
 
-tests.getAllUrls = function(callback) {
-    request({
-        method: "GET",
-        uri: "http://linux0.local:3000/api/v1/urls/"
-    }, function(error, response, body) {
-        if(error || !body) {
-            callback(true);
-            return;
-        }
+tests.getAllUrls = function (callback) {
+  request({
+    method: 'GET',
+    uri: 'http://127.0.0.1:3000/api/v1/urls/'
+  }, function (error, response, body) {
+    if (error || !body) {
+      callback(true);
+      return;
+    }
 
-        var parsedBody = body;
+    const parsedBody = body;
 
-        if(parsedBody.error) {
-            callback(true);
-            return;
-        }
+    if (parsedBody.error) {
+      callback(true);
+      return;
+    }
 
-        callback();
-    });
+    callback();
+  });
 };
 
-tests.makeShortUrl = function(callback) {
-    request({
-        method: "POST",
-        uri: "http://linux0.local:3000/api/v1/urls/",
-        json: {
-            url: "https://google.com/"
-        }
-    }, function(error, response, body) {
-        if(error || !body) {
-            callback(null, true);
-            return;
-        }
+tests.makeShortUrl = function (callback) {
+  request({
+    method: 'POST',
+    uri: 'http://127.0.0.1:3000/api/v1/urls/',
+    json: {
+      url: 'https://google.com/'
+    }
+  }, function(error, response, body) {
+    if (error || !body) {
+      callback(null, true);
+      return;
+    }
 
-        var parsedBody = body;
+    const parsedBody = body;
 
-        if(parsedBody.error) {
-            callback(null, true);
-            return;
-        }
+    if (parsedBody.error) {
+      callback(null, true);
+      return;
+    }
 
-        callback(parsedBody.id, false);
-    });
+    callback(parsedBody.id, false);
+  });
 };
 
 tests.modifyShortUrl = function(id, callback) {
-    request({
-        method: "POST",
-        uri: "http://linux0.local:3000/api/v1/urls/" + id + "/",
-        json: {
-            url: "http://example.org/"
-        }
-    }, function(error, response, body) {
-        if(error || !body) {
-            callback(true);
-            return;
-        }
+  request({
+    method: 'POST',
+    uri: 'http://127.0.0.1:3000/api/v1/urls/' + id + '/',
+    json: {
+      url: 'http://example.org/'
+    }
+  }, function (error, response, body) {
+    if (error || !body) {
+      callback(true);
+      return;
+    }
 
-        var parsedBody = body;
+    const parsedBody = body;
 
-        if(parsedBody.error) {
-            callback(true);
-            return;
-        }
+    if (parsedBody.error) {
+      callback(true);
+      return;
+    }
 
-        callback(false);
-    });
+    callback(false);
+  });
 };
 
-tests.deleteShortUrl = function(id, callback) {
-    request({
-        method: "DELETE",
-        uri: "http://linux0.local:3000/api/v1/urls/" + id + "/"
-    }, function(error, response, body) {
-        if(error || !body) {
-            callback(true);
-            return;
-        }
+tests.deleteShortUrl = function (id, callback) {
+  request({
+    method: 'DELETE',
+    uri: 'http://127.0.0.1:3000/api/v1/urls/' + id + '/'
+  }, function (error, response, body) {
+    if (error || !body) {
+      callback(true);
+      return;
+    }
 
-        var parsedBody = body;
+    const parsedBody = body;
 
-        if(parsedBody.error) {
-            callback(true);
-            return;
-        }
+    if (parsedBody.error) {
+      callback(true);
+      return;
+    }
 
-        callback(false);
-    });
+    callback(false);
+  });
 };
 
-tests.getOneShortUrl = function(id, callback) {
-    request({
-        method: "GET",
-        uri: "http://linux0.local:3000/api/v1/urls/" + id + "/"
-    }, function(error, response, body) {
-        if(error || !body) {
-            callback(true);
-            return;
-        }
+tests.getOneShortUrl = function (id, callback) {
+  request({
+    method: 'GET',
+    uri: 'http://127.0.0.1:3000/api/v1/urls/' + id + '/'
+  }, function (error, response, body) {
+    if (error || !body) {
+      callback(true);
+      return;
+    }
 
-        var parsedBody = body;
+    const parsedBody = body;
 
-        if(parsedBody.error) {
-            callback(true);
-            return;
-        }
+    if (parsedBody.error) {
+      callback(true);
+      return;
+    }
 
-        callback(false);
-    });
+    callback(false);
+  });
 };
 
-tests.givenRoute = function(route, callback) {
-    request({
-        method: "GET",
-        uri: "http://linux0.local:3000" + route
-    }, function(error, response, body) {
-        if(error || !body) {
-            callback(true);
-            return;
-        }
+tests.givenRoute = function (route, callback) {
+  request({
+    method: 'GET',
+    uri: 'http://127.0.0.1:3000' + route
+  }, function (error, response, body) {
+    if (error || !body) {
+      callback(true);
+      return;
+    }
 
-        var parsedBody = body;
+    const parsedBody = body;
 
-        if(parsedBody.error) {
-            callback(true);
-            return;
-        }
+    if (parsedBody.error) {
+      callback(true);
+      return;
+    }
 
-        callback(false);
-    });
+    callback(false);
+  });
 };
 
 module.exports = tests;

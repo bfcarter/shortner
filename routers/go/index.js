@@ -13,7 +13,7 @@ router.get('/:id', (req, res) => {
     res.redirect(shortUrl.realUrl);
   }).catch(() => {
     res.send('Error on redirecting.');
-    debugCtrl.debug('error', 'Error. Path: ' + req.originalUrl + '. Failed to find a shorturl of id ' + id + '.');
+    debugCtrl.console.error('error', 'Error. Path: ' + req.originalUrl + '. Failed to find a shorturl of id ' + id + '.');
   });
 });
 

@@ -44,6 +44,7 @@ Redirects to the destination url
 To test the app with Postman, import the Postman collection that is in the tests/postman directory.
 
 Deployment:
+
 To deploy the app you need to clone it, install it and run, which can be done using commands:
 git clone https://github.com/bfcarter/shortner/
 cd shortner
